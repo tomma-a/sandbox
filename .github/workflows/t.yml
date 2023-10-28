@@ -1,0 +1,10 @@
+name: test
+run-name: test
+on: [push]
+jobs:
+  j1:
+    run-on: ubuntu-latest
+    steps:
+      - name: step1
+        use:  actions/checkout@v4
+      - run:   pwd && ls -a
