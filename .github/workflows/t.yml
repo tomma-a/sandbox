@@ -7,4 +7,4 @@ jobs:
     steps:
       - name: step1
         uses:  actions/checkout@v4
-      - run:   pwd && ls -a
+      - run:  echo "::debug::linux is good"
