@@ -1,1 +1,1 @@
-PUTS("LINUX")
+puts("LINUX")
