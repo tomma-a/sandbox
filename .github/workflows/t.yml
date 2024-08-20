@@ -1,6 +1,14 @@
 name: test
 run-name: test
-on: [workflow_dispatch]
+on:
+    workflow_dispatch:
+      inputs:
+        branch:
+          description: "jjjj"
+          required: true
+        envv:
+          description: "ennnnn"
+          required: false
 jobs:
   j1:
     runs-on: ubuntu-latest
@@ -9,6 +17,6 @@ jobs:
     steps:
       - name: step1
         uses:  actions/checkout@v4
-      - run:  echo "::debug::linux is good"
+      - run:  echo ${{github.event.inputs.branch}}
       - run: crystal build aa.cr
       - run: ls -lht
