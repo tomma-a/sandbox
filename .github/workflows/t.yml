@@ -3,9 +3,10 @@ run-name: ${{github.actor}} create this
 on: [push]
 jobs:
   j1:
+    timeout-minutes: 1
     runs-on: ubuntu-latest
     steps:
       - name: step1
-        uses:  actions/checkout@v4
+        run: sleep 120
       - name: step2
         run: ls -lht
