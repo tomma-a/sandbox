@@ -3,10 +3,14 @@ run-name: ${{github.actor}} create this
 on: [push]
 jobs:
   j1:
-    timeout-minutes: 1
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        go-versions: ['1.19','1.20']
     steps:
-      - name: step1
-        run: sleep 120
-      - name: step2
-        run: ls -lht
+      - name: setup go ${{matrix.go-versions}}
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{matrix.go-versions}}
+      - name: display go version
+        run: go version
