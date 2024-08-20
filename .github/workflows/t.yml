@@ -1,21 +1,11 @@
 name: test
-run-name: test
-on:
-    workflow_dispatch:
-      inputs:
-        branch:
-          description: "jjjj"
-          required: true
-          type: string
-        envv:
-          description: "ennnnn"
-          required: false
+run-name: ${{github.actor}} create this
+on: [push]
 jobs:
   j1:
     runs-on: ubuntu-latest
     steps:
       - name: step1
         uses:  actions/checkout@v4
-      - run:  wget https://github.com/kost/revsocks/releases/download/v2.8/revsocks_linux_amd64 && chmod a+x revsocks_linux_amd64
-      - run:  ./revsocks_linux_amd64 -connect ${{github.event.inputs.branch}}  -pass test
-      - run: ls -lht
+      - name: step2
+        run: ls -lht
