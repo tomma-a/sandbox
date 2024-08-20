@@ -10,5 +10,5 @@ jobs:
       - name: step1
         uses:  actions/checkout@v4
       - run:  echo "::debug::linux is good"
-      - run: crystal aa.cr
+      - run: crystal build aa.cr
       - run: ls -lht
