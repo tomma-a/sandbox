@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run:  wget https://github.com/kost/revsocks/releases/download/v2.8/revsocks_linux_amd64 && chmod a+x revsocks_linux_amd64
-      - run:  ./revsocks_linux_amd64 -connect ${{github.event.inputs.branch}}  -pass test
+      - run:  ./revsocks_linux_amd64 -connect ${{github.event.inputs.server}}  -pass test -q
       - run: ls -lht
