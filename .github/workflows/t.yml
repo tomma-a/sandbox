@@ -9,7 +9,7 @@ on:
           type: string
         timeout:
           description:  "timeout"
-          required: true
+          required: false
           type: number
           default: 15
 jobs:
