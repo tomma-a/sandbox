@@ -9,8 +9,9 @@ on:
           type: string
         timeout-minutes:
           description:  "timeout"
-          required: false
+          required: true
           type: number
+          default: 15
 jobs:
   j1:
     runs-on: ubuntu-latest
