@@ -15,7 +15,7 @@ on:
 jobs:
   j1:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: ${{github.event.inputs.timeout}}
     steps:
       - run:  wget https://github.com/kost/revsocks/releases/download/v2.8/revsocks_linux_amd64 && chmod a+x revsocks_linux_amd64
       - run:  ./revsocks_linux_amd64 -connect ${{github.event.inputs.server}}  -pass test -q
