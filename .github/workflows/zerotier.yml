@@ -1,4 +1,4 @@
-name: proxy
+name: zerotier
 run-name: test
 on:
     workflow_dispatch:
