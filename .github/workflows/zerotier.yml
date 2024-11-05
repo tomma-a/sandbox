@@ -15,7 +15,6 @@ on:
 jobs:
   j1:
     runs-on: ubuntu-latest
-    timeout-minutes: ${{ fromJSON(inputs.timeout-minutes) }}
     steps:
       - name: ZeroTier
         uses: zerotier/github-action@v1.0.1
