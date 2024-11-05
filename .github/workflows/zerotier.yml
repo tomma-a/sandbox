@@ -1,0 +1,26 @@
+name: proxy
+run-name: test
+on:
+    workflow_dispatch:
+      inputs:
+        server:
+          description: "server info"
+          required: true
+          type: string
+        timeout-minutes:
+          description:  "timeout"
+          required: true
+          type: number
+          default: 15
+jobs:
+  j1:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ fromJSON(inputs.timeout-minutes) }}
+    steps:
+      - name: ZeroTier
+        uses: zerotier/github-action@v1.0.1
+        with:
+          network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
+          auth_token: ${{ secrets.ZEROTIER_CENTRAL_TOKEN }}
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
