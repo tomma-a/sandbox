@@ -15,7 +15,9 @@ on:
 jobs:
   j1:
     runs-on: ubuntu-latest
+    timeout-minutes: ${{ fromJSON(inputs.timeout-minutes) }}
     steps:
+      - uses: actions/checkout@v4
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
         with:
@@ -25,3 +27,8 @@ jobs:
         with:
           network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
           auth_token: ${{ secrets.ZEROTIER_CENTRAL_TOKEN }}
+      - name: setup
+        run: |
+              wget https://github.com/v2ray/dist/raw/refs/heads/master/v2ray-linux-64.zip
+              unzip v2ray-linux-64.zip
+              ./v2ray run -c server.json
